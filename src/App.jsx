@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import useIsMobile from './hooks/useIsMobile'
 import { useProgress } from '@react-three/drei'
 import Scene from './components/Scene/Scene'
 import OrbManager from './components/Navigation/OrbManager'
@@ -44,6 +45,7 @@ function SceneProgress() {
 export default function App() {
   const flyToZoneRef = useRef(null)
   const { currentZone, setZone } = useStore()
+  const isMobile = useIsMobile()
 
   function handleMinimapClick(zoneId) {
     flyToZoneRef.current?.(zoneId)
@@ -56,8 +58,9 @@ export default function App() {
   }
 
   return (
-    <div style={{ width: '100vw', height: '100vh', background: '#000' }}>
-      <Scene>
+    <>
+    <div style={{ width: '100vw', height: isMobile ? '50vh' : '100vh', background: '#000' }}>
+      <Scene disablePostprocessing={isMobile}>
         <Environment />
         <Floor />
         <Ceiling />
@@ -65,8 +68,8 @@ export default function App() {
         <Stage />
         <ChandelierRow />
         <ChairRows />
-        <RosePetals />
-        <StageGlitter />
+        {!isMobile && <RosePetals />}
+        {!isMobile && <StageGlitter />}
         <CameraController />
         <OrbManager flyToZoneRef={flyToZoneRef} />
         {currentZone === 1 && (
@@ -74,13 +77,25 @@ export default function App() {
         )}
       </Scene>
       <SceneProgress />
-      <MiniMap currentZone={currentZone} onZoneClick={handleMinimapClick} />
-      {currentZone > 1 && (
+      {!isMobile && <MiniMap currentZone={currentZone} onZoneClick={handleMinimapClick} />}
+      {!isMobile && currentZone > 1 && (
         <ZonePanel zoneId={currentZone} onClose={handleClosePanel}>
           {ZONE_CONTENT[currentZone]}
         </ZonePanel>
       )}
-      <SoundToggle />
+      {!isMobile && <SoundToggle />}
     </div>
+    {isMobile && (
+      <div style={{ overflowY: 'auto', background: '#1A1A1A', padding: '2rem 1rem' }}>
+        <section style={{ marginBottom: '3rem' }}><AboutZone /></section>
+        <section style={{ marginBottom: '3rem' }}><GalleryZone /></section>
+        <section style={{ marginBottom: '3rem' }}><PackagesZone /></section>
+        <section style={{ marginBottom: '3rem' }}><TestimonialsZone /></section>
+        <section style={{ marginBottom: '3rem' }}><FAQZone /></section>
+        <section style={{ marginBottom: '3rem' }}><BlogZone /></section>
+        <section style={{ marginBottom: '3rem' }}><EnquiryZone /></section>
+      </div>
+    )}
+    </>
   )
 }
