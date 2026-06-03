@@ -1,0 +1,68 @@
+export const ZONES = [
+  {
+    id: 1,
+    name: 'Entrance',
+    label: 'Welcome',
+    cameraPosition: [0, 2, 18],
+    cameraTarget: [0, 2, 0],
+    orbPosition: [0, 2.5, 14],
+  },
+  {
+    id: 2,
+    name: 'Mid-Aisle',
+    label: 'About',
+    cameraPosition: [0, 2.5, 10],
+    cameraTarget: [0, 2, 0],
+    orbPosition: [1.5, 2.5, 8],
+  },
+  {
+    id: 3,
+    name: 'Left Side',
+    label: 'Gallery',
+    cameraPosition: [-6, 3, 4],
+    cameraTarget: [0, 2, -2],
+    orbPosition: [-4, 2.5, 6],
+  },
+  {
+    id: 4,
+    name: 'Right Side',
+    label: 'Packages',
+    cameraPosition: [6, 3, 4],
+    cameraTarget: [0, 2, -2],
+    orbPosition: [4, 2.5, 6],
+  },
+  {
+    id: 5,
+    name: 'Stage Approach',
+    label: 'Testimonials',
+    cameraPosition: [0, 2.5, 1],
+    cameraTarget: [0, 3, -8],
+    orbPosition: [1.5, 2.5, 2],
+  },
+  {
+    id: 6,
+    name: 'Stage Close-up',
+    label: 'FAQ',
+    cameraPosition: [0, 3, -4],
+    cameraTarget: [0, 4, -8],
+    orbPosition: [1.5, 3, -3],
+  },
+  {
+    id: 7,
+    name: 'Overhead',
+    label: 'Blog',
+    cameraPosition: [0, 12, 2],
+    cameraTarget: [0, 0, -2],
+    orbPosition: [1.5, 3, -5],
+  },
+  {
+    id: 8,
+    name: 'Side Desk',
+    label: 'Enquire',
+    cameraPosition: [-8, 2, 6],
+    cameraTarget: [0, 2, 0],
+    orbPosition: [-5, 2.5, 8],
+  },
+]
+
+export const getZone = (id) => ZONES.find((z) => z.id === id) ?? null
