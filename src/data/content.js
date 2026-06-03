@@ -55,7 +55,7 @@ export const faqs = [
   { q: 'Can we bring our own caterer?', a: 'Outside caterers are welcome with a nominal kitchen usage fee. We also offer in-house catering coordination.' },
   { q: 'Are there decoration restrictions?', a: 'We allow all traditional and modern decorations. We only restrict use of open flames outside designated areas.' },
   { q: 'How far in advance should we book?', a: 'We recommend booking at least 6–12 months in advance for peak wedding season (Oct–Feb).' },
-  { q: 'Is there a bridal room?', a: 'Yes, a fully equipped air-conditioned bridal suite is included in our Gold and Royal packages.' },
+  { q: 'Can we use outside vendors (photographers, florists, DJ)?', a: 'Yes, outside vendors are welcome. We only require prior approval and that all vendors comply with our venue guidelines.' },
 ]
 
 export const blogs = [
