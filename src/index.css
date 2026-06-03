@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+:root {
+  --crimson: #C41230;
+  --gold: #D4AF37;
+  --ivory: #FFFFF0;
+  --walnut: #4A3728;
+  --marble: #F5F5F0;
+  --charcoal: #1A1A1A;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #000;
+  overflow: hidden;
+  font-family: 'Georgia', serif;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
