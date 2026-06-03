@@ -2,6 +2,7 @@ import { useProgress } from '@react-three/drei'
 import Scene from './components/Scene/Scene'
 import Environment from './components/Scene/Environment'
 import Floor from './components/Hall/Floor'
+import Ceiling from './components/Hall/Ceiling'
 import LoadingScreen from './components/UI/LoadingScreen'
 
 function SceneProgress() {
@@ -15,6 +16,7 @@ export default function App() {
       <Scene>
         <Environment />
         <Floor />
+        <Ceiling />
       </Scene>
       <SceneProgress />
     </div>
