@@ -75,9 +75,11 @@ export default function App() {
       </Scene>
       <SceneProgress />
       <MiniMap currentZone={currentZone} onZoneClick={handleMinimapClick} />
-      <ZonePanel zoneId={currentZone} onClose={handleClosePanel}>
-        {ZONE_CONTENT[currentZone]}
-      </ZonePanel>
+      {currentZone > 1 && (
+        <ZonePanel zoneId={currentZone} onClose={handleClosePanel}>
+          {ZONE_CONTENT[currentZone]}
+        </ZonePanel>
+      )}
       <SoundToggle />
     </div>
   )
