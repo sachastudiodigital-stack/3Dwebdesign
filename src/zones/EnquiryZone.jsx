@@ -51,17 +51,18 @@ export default function EnquiryZone() {
       </p>
       <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
         {[
-          { label: 'Full Name', name: 'name', type: 'text' },
-          { label: 'Phone Number', name: 'phone', type: 'tel' },
-          { label: 'Event Date', name: 'date', type: 'date' },
-          { label: 'Number of Guests', name: 'guests', type: 'number' },
-        ].map(({ label, name, type }) => (
+          { label: 'Full Name', name: 'name', type: 'text', required: true },
+          { label: 'Phone Number', name: 'phone', type: 'tel', required: true },
+          { label: 'Event Date', name: 'date', type: 'date', required: false },
+          { label: 'Number of Guests', name: 'guests', type: 'number', required: false },
+        ].map(({ label, name, type, required }) => (
           <div key={name}>
             <label htmlFor={name} style={labelStyle}>{label}</label>
             <input
               id={name}
               name={name}
               type={type}
+              required={required}
               value={form[name]}
               onChange={handleChange}
               style={fieldStyle}

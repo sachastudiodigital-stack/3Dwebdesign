@@ -1,6 +1,9 @@
+import { useState } from 'react'
 import { Html } from '@react-three/drei'
 
 export default function HeroZone({ onEnter }) {
+  const [hovered, setHovered] = useState(false)
+
   return (
     <Html position={[0, 3.5, 12]} center transform occlude={false}>
       <div style={{
@@ -30,9 +33,9 @@ export default function HeroZone({ onEnter }) {
         <button
           onClick={onEnter}
           style={{
-            background: 'transparent',
+            background: hovered ? '#D4AF37' : 'transparent',
             border: '2px solid #D4AF37',
-            color: '#D4AF37',
+            color: hovered ? '#1A1A1A' : '#D4AF37',
             padding: '0.75rem 2.5rem',
             fontSize: '1rem',
             fontFamily: 'Georgia, serif',
@@ -41,8 +44,8 @@ export default function HeroZone({ onEnter }) {
             borderRadius: 2,
             transition: 'all 0.3s',
           }}
-          onMouseOver={e => { e.target.style.background = '#D4AF37'; e.target.style.color = '#1A1A1A' }}
-          onMouseOut={e => { e.target.style.background = 'transparent'; e.target.style.color = '#D4AF37' }}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
         >
           BEGIN YOUR JOURNEY →
         </button>
