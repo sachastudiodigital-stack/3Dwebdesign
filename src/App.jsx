@@ -13,6 +13,28 @@ import ChandelierRow from './components/Chandeliers/ChandelierRow'
 import ChairRows from './components/Seating/ChairRows'
 import RosePetals from './components/Particles/RosePetals'
 import StageGlitter from './components/Particles/StageGlitter'
+import HeroZone from './zones/HeroZone'
+import AboutZone from './zones/AboutZone'
+import GalleryZone from './zones/GalleryZone'
+import PackagesZone from './zones/PackagesZone'
+import TestimonialsZone from './zones/TestimonialsZone'
+import FAQZone from './zones/FAQZone'
+import BlogZone from './zones/BlogZone'
+import EnquiryZone from './zones/EnquiryZone'
+import MiniMap from './components/UI/MiniMap'
+import ZonePanel from './components/UI/ZonePanel'
+import SoundToggle from './components/UI/SoundToggle'
+import useStore from './store/useStore'
+
+const ZONE_CONTENT = {
+  2: <AboutZone />,
+  3: <GalleryZone />,
+  4: <PackagesZone />,
+  5: <TestimonialsZone />,
+  6: <FAQZone />,
+  7: <BlogZone />,
+  8: <EnquiryZone />,
+}
 
 function SceneProgress() {
   const { progress } = useProgress()
@@ -21,6 +43,17 @@ function SceneProgress() {
 
 export default function App() {
   const flyToZoneRef = useRef(null)
+  const { currentZone, setZone } = useStore()
+
+  function handleMinimapClick(zoneId) {
+    flyToZoneRef.current?.(zoneId)
+    setZone(zoneId)
+  }
+
+  function handleClosePanel() {
+    flyToZoneRef.current?.(1)
+    setZone(1)
+  }
 
   return (
     <div style={{ width: '100vw', height: '100vh', background: '#000' }}>
@@ -36,8 +69,16 @@ export default function App() {
         <StageGlitter />
         <CameraController />
         <OrbManager flyToZoneRef={flyToZoneRef} />
+        {currentZone === 1 && (
+          <HeroZone onEnter={() => handleMinimapClick(2)} />
+        )}
       </Scene>
       <SceneProgress />
+      <MiniMap currentZone={currentZone} onZoneClick={handleMinimapClick} />
+      <ZonePanel zoneId={currentZone} onClose={handleClosePanel}>
+        {ZONE_CONTENT[currentZone]}
+      </ZonePanel>
+      <SoundToggle />
     </div>
   )
 }
