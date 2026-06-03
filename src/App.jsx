@@ -4,6 +4,7 @@ import Environment from './components/Scene/Environment'
 import Floor from './components/Hall/Floor'
 import Ceiling from './components/Hall/Ceiling'
 import Walls from './components/Hall/Walls'
+import Stage from './components/Stage/Stage'
 import LoadingScreen from './components/UI/LoadingScreen'
 
 function SceneProgress() {
@@ -19,6 +20,7 @@ export default function App() {
         <Floor />
         <Ceiling />
         <Walls />
+        <Stage />
       </Scene>
       <SceneProgress />
     </div>
