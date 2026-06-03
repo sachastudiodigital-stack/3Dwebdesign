@@ -1,8 +1,9 @@
 import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
 import { Preload } from '@react-three/drei'
+import { EffectComposer, Bloom, Vignette } from '@react-three/postprocessing'
 
-export default function Scene({ children }) {
+export default function Scene({ children, disablePostprocessing = false }) {
   return (
     <Canvas
       shadows
@@ -14,6 +15,12 @@ export default function Scene({ children }) {
         {children}
         <Preload all />
       </Suspense>
+      {!disablePostprocessing && (
+        <EffectComposer>
+          <Bloom luminanceThreshold={0.6} intensity={0.8} mipmapBlur />
+          <Vignette eskil={false} offset={0.1} darkness={0.5} />
+        </EffectComposer>
+      )}
     </Canvas>
   )
 }
