@@ -1,4 +1,6 @@
 import FloralWall from './FloralWall'
+import Throne from './Throne'
+import Candelabras from './Candelabras'
 
 export default function Stage() {
   return (
@@ -21,6 +23,10 @@ export default function Stage() {
 
       {/* Floral wall */}
       <FloralWall />
+
+      {/* Throne and candelabras */}
+      <Throne />
+      <Candelabras />
 
       {/* Central circular floral piece above stage */}
       <mesh position={[0, 5.8, -13]}>
