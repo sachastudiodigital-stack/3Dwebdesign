@@ -38,8 +38,9 @@ const ZONE_CONTENT = {
 }
 
 function SceneProgress() {
-  const { progress } = useProgress()
-  return <LoadingScreen progress={progress} />
+  const { active, progress } = useProgress()
+  const done = (!active && progress === 0) || progress >= 100
+  return <LoadingScreen progress={done ? 100 : progress} />
 }
 
 export default function App() {
