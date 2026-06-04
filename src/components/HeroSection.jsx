@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { ChevronDown } from 'lucide-react'
 
 export default function HeroSection() {
   return (
@@ -35,9 +36,9 @@ export default function HeroSection() {
       <motion.div
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-        style={{ position: 'absolute', bottom: '2rem', left: '50%', transform: 'translateX(-50%)', zIndex: 2, color: 'var(--gold)', fontSize: '1.5rem', opacity: 0.7 }}
+        style={{ position: 'absolute', bottom: '2rem', left: '50%', transform: 'translateX(-50%)', zIndex: 2, color: 'var(--gold)', opacity: 0.7 }}
       >
-        ↓
+        <ChevronDown size={32} strokeWidth={1.5} />
       </motion.div>
     </section>
   )

@@ -1,12 +1,13 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { fadeUp, staggerContainer } from '../utils/animations'
+import { Users, UserCheck, Car, Clock } from 'lucide-react'
 
 const stats = [
-  { icon: '🪑', value: '700', label: 'Sitting Capacity' },
-  { icon: '🧑‍🤝‍🧑', value: '1800', label: 'Standing Capacity' },
-  { icon: '🚗', value: '100', label: 'Parking Vehicles' },
-  { icon: '⏰', value: '24 Hrs', label: 'Always Open' },
+  { Icon: Users, value: '700', label: 'Sitting Capacity' },
+  { Icon: UserCheck, value: '1800', label: 'Standing Capacity' },
+  { Icon: Car, value: '100', label: 'Parking Vehicles' },
+  { Icon: Clock, value: '24 Hrs', label: 'Always Open' },
 ]
 
 export default function AboutSection() {
@@ -28,7 +29,7 @@ export default function AboutSection() {
           <motion.div variants={staggerContainer} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
             {stats.map((s) => (
               <motion.div key={s.label} variants={fadeUp} style={{ background: 'var(--dark-card)', border: '1px solid var(--border)', borderTop: '2px solid var(--gold)', padding: '1.25rem', textAlign: 'center' }}>
-                <div style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>{s.icon}</div>
+                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '0.5rem' }}><s.Icon size={28} color="var(--gold)" strokeWidth={1.5} /></div>
                 <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.3rem', color: 'var(--gold)', fontWeight: 600 }}>{s.value}</div>
                 <div style={{ fontSize: '0.8rem', color: 'var(--muted)', marginTop: '0.25rem', letterSpacing: '0.05em' }}>{s.label}</div>
               </motion.div>

@@ -2,6 +2,9 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { fadeUp, staggerContainer } from '../utils/animations'
 import { blogs } from '../data/content'
+import { Church, Flower2, Star } from 'lucide-react'
+
+const blogIcons = [Church, Flower2, Star]
 
 export default function BlogSection() {
   const ref = useRef(null)
@@ -15,11 +18,13 @@ export default function BlogSection() {
 
         <motion.div variants={staggerContainer} initial="hidden" animate={inView ? 'visible' : 'hidden'}
           style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }} className="blog-grid">
-          {blogs.map((post) => (
+          {blogs.map((post, i) => {
+            const Icon = blogIcons[i % blogIcons.length]
+            return (
             <motion.article key={post.id} variants={fadeUp}
               style={{ background: 'var(--black)', border: '1px solid var(--border)', overflow: 'hidden' }}>
-              <div style={{ background: 'var(--dark-card)', height: '160px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '3rem', borderBottom: '1px solid var(--border)' }}>
-                {post.icon}
+              <div style={{ background: 'var(--dark-card)', height: '160px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px solid var(--border)' }}>
+                <Icon size={48} color="var(--gold)" strokeWidth={1} />
               </div>
               <div style={{ padding: '1.5rem' }}>
                 <p style={{ color: 'var(--gold)', fontSize: '0.75rem', letterSpacing: '0.1em', marginBottom: '0.75rem' }}>{post.date}</p>
@@ -28,7 +33,7 @@ export default function BlogSection() {
                 <a href="#" style={{ color: 'var(--gold)', fontSize: '0.85rem', textDecoration: 'none', letterSpacing: '0.05em', fontWeight: 500 }}>Read More →</a>
               </div>
             </motion.article>
-          ))}
+          )})}
         </motion.div>
       </div>
     </section>

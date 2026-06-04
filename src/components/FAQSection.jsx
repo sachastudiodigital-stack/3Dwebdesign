@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { fadeUp, staggerContainer } from '../utils/animations'
 import { faqs } from '../data/content'
+import { ChevronDown } from 'lucide-react'
 
 export default function FAQSection() {
   const ref = useRef(null)
@@ -30,7 +31,9 @@ export default function FAQSection() {
                 style={{ width: '100%', textAlign: 'left', background: 'none', border: 'none', color: 'var(--white)', padding: '1.25rem 1.5rem', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontFamily: 'var(--font-sans)', fontSize: '0.95rem', fontWeight: 500 }}>
                 {faq.q}
                 <motion.span animate={{ rotate: open === i ? 180 : 0 }} transition={{ duration: 0.2 }}
-                  style={{ color: 'var(--gold)', fontSize: '1rem', flexShrink: 0, marginLeft: '1rem' }}>▾</motion.span>
+                  style={{ color: 'var(--gold)', flexShrink: 0, marginLeft: '1rem', display: 'flex' }}>
+                  <ChevronDown size={18} strokeWidth={2} />
+                </motion.span>
               </button>
 
               {open === i && (
