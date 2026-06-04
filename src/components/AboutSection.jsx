@@ -1,5 +1,5 @@
-import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { useRef, useEffect } from 'react'
+import { motion, useInView, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { fadeUp, staggerContainer } from '../utils/animations'
 import { Users, UserCheck, Car, Clock } from 'lucide-react'
 
@@ -9,6 +9,18 @@ const stats = [
   { Icon: Car, value: '100', label: 'Parking Vehicles' },
   { Icon: Clock, value: '24 Hrs', label: 'Always Open' },
 ]
+
+function CountUp({ to, inView }) {
+  const count = useMotionValue(0)
+  const rounded = useTransform(count, (v) => Math.round(v))
+  const spring = useSpring(count, { stiffness: 60, damping: 20 })
+
+  useEffect(() => {
+    if (inView) spring.set(to)
+  }, [inView, spring, to])
+
+  return <motion.span>{rounded}</motion.span>
+}
 
 export default function AboutSection() {
   const ref = useRef(null)
@@ -27,13 +39,20 @@ export default function AboutSection() {
             From weddings and receptions to engagements and corporate events, we offer in-house catering, ample parking for 100 vehicles, and a professional team that ensures every detail is perfect — so you can focus entirely on your celebration.
           </motion.p>
           <motion.div variants={staggerContainer} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-            {stats.map((s) => (
-              <motion.div key={s.label} variants={fadeUp} style={{ background: 'var(--dark-card)', border: '1px solid var(--border)', borderTop: '2px solid var(--gold)', padding: '1.25rem', textAlign: 'center' }}>
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '0.5rem' }}><s.Icon size={28} color="var(--gold)" strokeWidth={1.5} /></div>
-                <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.3rem', color: 'var(--gold)', fontWeight: 600 }}>{s.value}</div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--muted)', marginTop: '0.25rem', letterSpacing: '0.05em' }}>{s.label}</div>
-              </motion.div>
-            ))}
+            {stats.map((s) => {
+              const { Icon: StatIcon } = s
+              return (
+                <motion.div key={s.label} variants={fadeUp} style={{ background: 'var(--dark-card)', border: '1px solid var(--border)', borderTop: '2px solid var(--gold)', padding: '1.25rem', textAlign: 'center' }}>
+                  <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '0.5rem' }}><StatIcon size={28} color="var(--gold)" strokeWidth={1.5} /></div>
+                  <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.3rem', color: 'var(--gold)', fontWeight: 600 }}>
+                    {typeof s.value === 'string' && isNaN(parseInt(s.value))
+                      ? s.value
+                      : <CountUp to={parseInt(s.value)} inView={inView} />}
+                  </div>
+                  <div style={{ fontSize: '0.8rem', color: 'var(--muted)', marginTop: '0.25rem', letterSpacing: '0.05em' }}>{s.label}</div>
+                </motion.div>
+              )
+            })}
           </motion.div>
         </motion.div>
 

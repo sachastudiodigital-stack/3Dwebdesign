@@ -16,6 +16,16 @@ const amenities = [
   { Icon: MapPin, label: 'Prime Location, Warangal' },
 ]
 
+const ringVariants = {
+  hidden: { pathLength: 0, opacity: 0 },
+  visible: { pathLength: 1, opacity: 1, transition: { duration: 1.2, ease: 'easeInOut' } },
+}
+
+const iconVariants = {
+  hidden: { opacity: 0, scale: 0.5 },
+  visible: { opacity: 1, scale: 1, transition: { delay: 0.8, duration: 0.4 } },
+}
+
 export default function AmenitiesSection() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
@@ -36,7 +46,26 @@ export default function AmenitiesSection() {
               whileHover={{ borderColor: 'var(--gold)', y: -4 }}
               style={{ background: 'var(--dark-card)', border: '1px solid var(--border)', padding: '1.75rem 1rem', textAlign: 'center', transition: 'border-color 0.2s' }}>
               <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '0.85rem' }}>
-                <Icon size={28} color="var(--gold)" strokeWidth={1.5} />
+                <div style={{ position: 'relative', width: 56, height: 56 }}>
+                  <motion.svg width={56} height={56} viewBox="0 0 56 56" style={{ position: 'absolute', top: 0, left: 0 }}>
+                    <motion.circle
+                      cx={28} cy={28} r={24}
+                      fill="none"
+                      stroke="var(--gold)"
+                      strokeWidth={1.5}
+                      variants={ringVariants}
+                      initial="hidden"
+                      animate={inView ? 'visible' : 'hidden'}
+                    />
+                  </motion.svg>
+                  <motion.div
+                    variants={iconVariants}
+                    initial="hidden"
+                    animate={inView ? 'visible' : 'hidden'}
+                    style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Icon size={24} color="var(--gold)" strokeWidth={1.5} />
+                  </motion.div>
+                </div>
               </div>
               <p style={{ color: 'var(--white)', fontSize: '0.82rem', fontWeight: 500, letterSpacing: '0.03em', lineHeight: 1.4 }}>{label}</p>
             </motion.div>

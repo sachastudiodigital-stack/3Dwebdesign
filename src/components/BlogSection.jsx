@@ -23,8 +23,18 @@ export default function BlogSection() {
             return (
             <motion.article key={post.id} variants={fadeUp}
               style={{ background: 'var(--black)', border: '1px solid var(--border)', overflow: 'hidden' }}>
-              <div style={{ background: 'var(--dark-card)', height: '160px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderBottom: '1px solid var(--border)' }}>
-                <Icon size={48} color="var(--gold)" strokeWidth={1} />
+              <div style={{ position: 'relative', height: '160px', overflow: 'hidden', borderBottom: '1px solid var(--border)', background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1505 50%, #0a0a0a 100%)' }}>
+                <motion.div
+                  animate={{ x: ['-100%', '200%'] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: 'linear', repeatDelay: 1 }}
+                  style={{ position: 'absolute', top: 0, left: 0, width: '60%', height: '100%', background: 'linear-gradient(90deg, transparent, rgba(201,160,39,0.12), transparent)', transform: 'skewX(-20deg)' }}
+                />
+                <motion.div
+                  animate={{ scale: [1, 1.15, 1], opacity: [0.7, 1, 0.7] }}
+                  transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+                  style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Icon size={48} color="var(--gold)" strokeWidth={1} />
+                </motion.div>
               </div>
               <div style={{ padding: '1.5rem' }}>
                 <p style={{ color: 'var(--gold)', fontSize: '0.75rem', letterSpacing: '0.1em', marginBottom: '0.75rem' }}>{post.date}</p>
