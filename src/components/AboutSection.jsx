@@ -3,10 +3,10 @@ import { motion, useInView } from 'framer-motion'
 import { fadeUp, staggerContainer } from '../utils/animations'
 
 const stats = [
-  { icon: '🏛', value: '500+', label: 'Guests Capacity' },
-  { icon: '⏰', value: '24 Hrs', label: 'Open Always' },
-  { icon: '✨', value: 'Premium', label: 'Ambience' },
-  { icon: '📍', value: 'Warangal', label: 'Telangana' },
+  { icon: '🪑', value: '700', label: 'Sitting Capacity' },
+  { icon: '🧑‍🤝‍🧑', value: '1800', label: 'Standing Capacity' },
+  { icon: '🚗', value: '100', label: 'Parking Vehicles' },
+  { icon: '⏰', value: '24 Hrs', label: 'Always Open' },
 ]
 
 export default function AboutSection() {
@@ -20,10 +20,10 @@ export default function AboutSection() {
           <motion.p variants={fadeUp} className="section-label">About Us</motion.p>
           <motion.h2 variants={fadeUp} className="section-title">A Venue Built for Your Most Special Day</motion.h2>
           <motion.p variants={fadeUp} style={{ color: 'var(--muted)', lineHeight: 1.8, marginBottom: '1rem', fontSize: '1rem' }}>
-            VSR Gardens is Warangal&apos;s most sought-after marriage function hall, designed to turn your celebrations into lifelong memories. Our spacious, elegantly maintained venue accommodates up to 500 guests in comfort and style.
+            VSR Gardens is Warangal&apos;s premier marriage function hall, designed to make every celebration unforgettable. With a sitting capacity of 700 and standing capacity of 1800, we comfortably host weddings of every scale in elegance and style.
           </motion.p>
           <motion.p variants={fadeUp} style={{ color: 'var(--muted)', lineHeight: 1.8, marginBottom: '2.5rem', fontSize: '1rem' }}>
-            From weddings and receptions to engagements and corporate events, our professional team ensures every detail is perfect — so you can focus entirely on your celebration.
+            From weddings and receptions to engagements and corporate events, we offer in-house catering, ample parking for 100 vehicles, and a professional team that ensures every detail is perfect — so you can focus entirely on your celebration.
           </motion.p>
           <motion.div variants={staggerContainer} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
             {stats.map((s) => (

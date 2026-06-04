@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 export default function HeroSection() {
   return (
@@ -26,8 +27,8 @@ export default function HeroSection() {
           Where Every Celebration Becomes a Memory
         </p>
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <a href="#about" className="btn-outline">Explore Venue</a>
-          <a href="#contact" className="btn-gold">Enquire Now</a>
+          <Link to="/about" className="btn-outline">Explore Venue</Link>
+          <Link to="/contact" className="btn-gold">Enquire Now</Link>
         </div>
       </motion.div>
 

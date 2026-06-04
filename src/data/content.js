@@ -73,16 +73,16 @@ export const testimonials = [
 
 export const faqs = [
   {
-    q: 'What is the maximum guest capacity?',
-    a: 'VSR Gardens comfortably accommodates up to 500 guests with full seating arrangements.',
+    q: 'What is the guest capacity?',
+    a: 'VSR Gardens accommodates 700 guests with full seating and up to 1800 for standing events.',
   },
   {
     q: 'Is parking available?',
-    a: 'Yes, we have ample parking for 100+ vehicles, with valet parking available in the Royal package.',
+    a: 'Yes, we have dedicated parking for up to 100 vehicles on the premises.',
   },
   {
-    q: 'Can we bring our own caterer?',
-    a: 'Outside caterers are welcome with a nominal kitchen usage fee. We also offer in-house catering coordination.',
+    q: 'Do you provide catering?',
+    a: 'Yes, we offer in-house catering services. You are also welcome to bring your own caterer with prior arrangement.',
   },
   {
     q: 'Are there decoration restrictions?',
@@ -99,16 +99,16 @@ export const faqs = [
 ]
 
 export const amenities = [
-  { icon: '🏛', label: 'Spacious Hall' },
-  { icon: '🚗', label: 'Ample Parking' },
+  { icon: '🪑', label: '700 Sitting Capacity' },
+  { icon: '🧑‍🤝‍🧑', label: '1800 Standing Capacity' },
+  { icon: '🚗', label: '100 Car Parking' },
+  { icon: '🍽', label: 'In-House Catering' },
   { icon: '💐', label: 'Bridal Room' },
-  { icon: '🍽', label: 'Catering Support' },
   { icon: '🎵', label: 'AV System' },
   { icon: '⏰', label: 'Open 24 Hours' },
   { icon: '✨', label: 'Elegant Ambience' },
   { icon: '🧹', label: 'Immaculate Cleanliness' },
-  { icon: '👔', label: 'Professional Staff' },
-  { icon: '📍', label: 'Prime Location' },
+  { icon: '📍', label: 'Prime Location, Warangal' },
 ]
 
 export const blogs = [

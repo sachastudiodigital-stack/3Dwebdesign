@@ -1,31 +1,28 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import HeroSection from './components/HeroSection'
-import AboutSection from './components/AboutSection'
-import GallerySection from './components/GallerySection'
-import PackagesSection from './components/PackagesSection'
-import TestimonialsSection from './components/TestimonialsSection'
-import AmenitiesSection from './components/AmenitiesSection'
-import FAQSection from './components/FAQSection'
-import BlogSection from './components/BlogSection'
-import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
+import HomePage from './pages/HomePage'
+import AboutPage from './pages/AboutPage'
+import GalleryPage from './pages/GalleryPage'
+import TestimonialsPage from './pages/TestimonialsPage'
+import BlogPage from './pages/BlogPage'
+import ContactPage from './pages/ContactPage'
 
 export default function App() {
   return (
-    <>
+    <BrowserRouter>
       <Navbar />
       <main>
-        <HeroSection />
-        <AboutSection />
-        <GallerySection />
-        <PackagesSection />
-        <TestimonialsSection />
-        <AmenitiesSection />
-        <FAQSection />
-        <BlogSection />
-        <ContactSection />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/testimonials" element={<TestimonialsPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
       </main>
       <Footer />
-    </>
+    </BrowserRouter>
   )
 }

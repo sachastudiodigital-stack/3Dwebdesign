@@ -1,3 +1,14 @@
+import { Link } from 'react-router-dom'
+
+const footerLinks = [
+  { label: 'Home', to: '/' },
+  { label: 'About', to: '/about' },
+  { label: 'Gallery', to: '/gallery' },
+  { label: 'Testimonials', to: '/testimonials' },
+  { label: 'Blog', to: '/blog' },
+  { label: 'Contact', to: '/contact' },
+]
+
 export default function Footer() {
   const year = new Date().getFullYear()
   return (
@@ -9,13 +20,13 @@ export default function Footer() {
         Where Every Celebration Becomes a Memory
       </p>
       <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center', marginBottom: '2rem', flexWrap: 'wrap' }}>
-        {['#about', '#gallery', '#packages', '#contact'].map((href) => (
-          <a key={href} href={href}
+        {footerLinks.map((link) => (
+          <Link key={link.to} to={link.to}
             style={{ color: 'var(--muted)', textDecoration: 'none', fontSize: '0.85rem', letterSpacing: '0.05em', transition: 'color 0.2s' }}
-            onMouseEnter={(e) => { e.target.style.color = 'var(--gold)' }}
-            onMouseLeave={(e) => { e.target.style.color = 'var(--muted)' }}>
-            {href.replace('#', '').charAt(0).toUpperCase() + href.replace('#', '').slice(1)}
-          </a>
+            onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--gold)' }}
+            onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--muted)' }}>
+            {link.label}
+          </Link>
         ))}
       </div>
       <a href="tel:+919849555900" style={{ color: 'var(--white)', textDecoration: 'none', fontSize: '1rem', letterSpacing: '0.05em', display: 'block', marginBottom: '1.5rem' }}>
