@@ -1,20 +1,11 @@
 import { create } from 'zustand'
 
-const useStore = create((set, get) => ({
-  currentZone: 0,
-  previousZone: null,
-  isTransitioning: false,
-  isLoading: true,
-  isMuted: true,
-
-  setZone: (zoneIndex) => set((state) => ({
-    previousZone: state.currentZone,
-    currentZone: zoneIndex,
-  })),
-
-  setTransitioning: (val) => set({ isTransitioning: val }),
-  setLoading: (val) => set({ isLoading: val }),
-  toggleMute: () => set((state) => ({ isMuted: !state.isMuted })),
+const useStore = create((set) => ({
+  form: { name: '', phone: '', date: '', guests: '', message: '' },
+  submitted: false,
+  setField: (field, value) => set((state) => ({ form: { ...state.form, [field]: value } })),
+  setSubmitted: (val) => set({ submitted: val }),
+  resetForm: () => set({ form: { name: '', phone: '', date: '', guests: '', message: '' }, submitted: false }),
 }))
 
 export default useStore
