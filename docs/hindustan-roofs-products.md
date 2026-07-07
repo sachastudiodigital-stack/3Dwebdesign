@@ -105,6 +105,40 @@ Product Category
 
 ---
 
+## Telangana (Hyderabad/Warangal-region) Thickness & Price Reference — Metal Sheets
+
+> No Warangal-specific published price list was found (dealer-level pricing isn't publicly
+> indexed). The figures below are **Hyderabad/Telangana-market retail prices** gathered from
+> dealer listings (IndiaMART, TradeIndia, Aajjo) and JSW's own price-inquiry page, current as of
+> late 2025/early 2026. Use these as a **negotiating benchmark**, not the dealer's actual quote —
+> confirm exact rates with Hindustan Manufacturers & Traders directly, since prices move with
+> steel-coil rates roughly every 1–2 weeks and bulk/wholesale orders get lower per-unit rates.
+
+| Brand / Line | Common thickness sold in the region | Price per sq ft (₹) | Source basis |
+|---|---|---|---|
+| **JSW Cooling Sheet** (plain GI, no color coat) | 0.40 mm | ₹29 – 35 | Hyderabad dealer listings |
+| **JSW Pragati / Pragati+** (colour coated, "50 quality") | 0.45 – 0.50 mm | ₹38 – 46 | Hyderabad dealer listings |
+| **JSW general metal roofing sheet, 150 GSM** | 0.50 mm | ₹41 – 50 | Hyderabad dealer listings |
+| **JSW Colouron / Colouron+** (premium Galvalume) | 0.47 – 0.50 mm | ₹45 – 85 (higher end for PPGL/heavier coating) | JSW price page + dealer listings |
+| **AMNS colour coated sheet** | 0.50 mm | ₹42 – 75 (₹74.5/kg quoted by one Hyderabad dealer) | Hyderabad/Ahmedabad dealer listings |
+| **Jindal colour coated sheet, 0.50 mm** | 0.50 mm | ₹40 – 45 | Hyderabad dealer listings (Kukatpally, Balanagar) |
+| **Bare Galvalume (uncoated)** | — | ₹40 – 75 | General India market range |
+| **Premium TATA/JSW top-tier sheets** | 0.50 – 0.80 mm | ₹55 – 120 | General India market range |
+
+**What drives the price within a brand:**
+1. **Base Metal Thickness (BMT)** — thicker steel core = higher ₹/sq ft.
+2. **Coating mass (GSM)** — zinc/aluminium-zinc coating weight; higher GSM = better corrosion resistance = higher price.
+3. **Brand tier** — JSW/Tata > AMNS/Jindal > unbranded, for the same spec.
+4. **Order volume** — wholesale/bulk (truckload) orders typically run 10–20% below the retail per-sq-ft rates above.
+5. **Color/RAL customization** — non-standard colors add a premium.
+
+### Structural pipes (Tata Structura) — Telangana reference
+
+- **Price:** ₹57 – 69/kg (Hyderabad, Jan 2026, ex-GST, for common sizes like 1.5"×1.5"); general India range ₹65 – 100/kg depending on diameter/wall thickness.
+- **GST:** add 18% on top of the above.
+
+---
+
 ## Open items to confirm directly with the dealer
 
 Since the source site could not be scraped, the following should be verified by phone/site-visit
